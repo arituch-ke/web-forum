@@ -1,6 +1,5 @@
 "use client";
 
-import { FC } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 import { SwitchProps, useSwitch } from "@nextui-org/switch";
 import { useTheme } from "next-themes";
@@ -14,16 +13,12 @@ export interface ThemeSwitchProps {
   classNames?: SwitchProps["classNames"];
 }
 
-export const ThemeSwitch: FC<ThemeSwitchProps> = ({
-  className,
-  classNames,
-}) => {
+export const ThemeSwitch = ({ className, classNames }: ThemeSwitchProps) => {
   const { theme, setTheme } = useTheme();
   const isSSR = useIsSSR();
 
-  const onChange = () => {
+  const onChange = () =>
     theme === "light" ? setTheme("dark") : setTheme("light");
-  };
 
   const {
     Component,
